@@ -7,11 +7,6 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float units;
 
-    void Update()
-    {
-        
-    }
-
     public void Move(string direction)
     {
         switch(direction)
