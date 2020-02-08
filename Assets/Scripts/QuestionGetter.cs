@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -17,11 +18,14 @@ public class QuestionGetter : MonoBehaviour
         MathQ = new Hashtable();
         MathA = new Hashtable();
         
-        using (StreamReader reader = new StreamReader(MATH_PATH))
+        using (StreamReader reader = new StreamReader(MATH_A_PATH))
         {
             string line;
+            int ID;
             line = reader.ReadLine();
-            
+            foreach(char c in line.ToCharArray()) {
+               
+            }
         }
 
     }
