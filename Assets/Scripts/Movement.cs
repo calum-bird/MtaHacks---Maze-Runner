@@ -5,37 +5,26 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField]
-    private GameObject playerObject;
+    private float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        Move(Direction.East);
-        Move(Direction.East);
-        Move(Direction.East);
+        //Move();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Move();
+        float vertical = Input.GetAxis("Vertical") * speed;
+        float horizontal = Input.GetAxis("Horizontal") * speed;
 
+        // Make it move 10 meters per second instead of 10 meters per frame...
+        vertical *= Time.deltaTime;
+        horizontal *= Time.deltaTime;
+
+        // Move translation along the object's z-axis
+        transform.Translate(horizontal, vertical, 0);
     }
-
-    public void Move(Direction dir)
-    {
-        switch(dir)
-        {
-            case Direction.East:
-                playerObject.transform.Translate(Vector3.forward);
-                break;
-        }
-    }
-}
-
-public enum Direction
-{
-    East,
-    North,
-    South,
-    West
 }
