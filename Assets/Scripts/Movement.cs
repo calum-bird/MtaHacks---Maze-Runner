@@ -5,29 +5,37 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField]
-    private float units;
+    private GameObject playerObject;
 
-    void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        
+        Move(Direction.East);
+        Move(Direction.East);
+        Move(Direction.East);
     }
 
-    public void Move(string direction)
+    // Update is called once per frame
+    void Update()
     {
-        switch(direction)
+
+    }
+
+    public void Move(Direction dir)
+    {
+        switch(dir)
         {
-            case "north":
-                transform.Translate(Vector3.up  * units);
-                break;
-            case "east":
-                transform.Translate(Vector3.right  * units);
-                break;
-            case "south":
-                transform.Translate(Vector3.down  * units);
-                break;
-            case "west":
-                transform.Translate(Vector3.left  * units);
+            case Direction.East:
+                playerObject.transform.Translate(Vector3.forward);
                 break;
         }
     }
+}
+
+public enum Direction
+{
+    East,
+    North,
+    South,
+    West
 }
